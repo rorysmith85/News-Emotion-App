@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
+  <title>Analyzing News Headlines</title>
+  <link rel='stylesheet' href='index.css' />
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>Headline Vivisector</h1>
+    <div id="container">
+      <ul class="nav">
+        <li>Menu
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="center_flex">
+    <div id="flex-container">
+      <h2>How does this work?</h2>
+      <p>This app displays the emotion and sentiment in news headlines.</p>
+      <p>You can pick your news subject and your news sources as you like. This allows you to compare the sentiment and emotion of different news sources in order to see if there are any signicant differences on how the news is reported.</p>
+      <p>Given that most people get their news from reading headlines, understanding how they are geared to pander to our sentiment and emotinos is important in revealing bias. Can you see a trend based on subject areas? Is there a difference in scores based
+        on whether the headlines are right-wing, centrist, or left-wing?</p>
+      <p>To understand how the data is processed check out the About section in the menu.</p>
+      <p>To start pick a news topic and then a source and hit submit. </p>
+    </div>
+  </div>
+
+  <div id="toggle-button">
+    <button id="toggle" type="button">Hide/Show Content</button>
+  </div>
+
+<!--Allows the user to pick what news source that they are interested in-->
+  <div class="select_option" id="select_news_topic">
+    <h2>News Topic</h2>
+    <p>What's your news interest:</p>
+    <h6>Make sure your search terms are correctly spelled and concise.</h6>
+    <label for="news_cat">
+        <input type="text" id="news_cat" value="" list="categories">
+      </label>
+    <datalist id="categories">
+        <option value="Trump"></option>
+        <option value="Syria"></option>
+        <option value="Environment"></option>
+        <option value="Immigration"></option>
+        <option value="Brexit"></option>
+        <option value="Business"></option>
+        <option value="Education"></option>
+        <option value="Science"></option>
+        <option value="Politics"></option>
+      </datalist>
+  </div>
+
+  <!--If the user inputs the wrong query terms a message will pop up in the following div-->
+  <div id="refine"></div>
+
+  <!--Here the user gets to select the preferred news choices-->
+  <div id="selections">
+    <div class="select_option" id="select_news_sourceL">
+      <h2>News Source #1:</h2>
+      <p>Pick your source:</p>
+      <select id="news_sourceL" name="filter">
+        <option value="the-new-york-times">The NY Times</option>
+        <option value="the-washington-post">Washington Post</option>
+        <option value="bloomberg">Bloomberg</option>
+        <option value="abc-news">ABC</option>
+        <option value="associated-press">AP</option>
+        <option value="breitbart-news">Breitbart</option>
+        <option value="buzzfeed">Buzzfeed</option>
+        <option value="bbc-news">BBC</option>
+        <option value="financial-times">Financial Times</option>
+        <option value="fox-news">Fox News</option>
+      </select>
+    </div>
+
+    <div class="select_option" id="select_news_source">
+      <h2>News Source #2:</h2>
+      <p>Pick your source:</p>
+      <select id="news_source" name="filter">
+        <option value="breitbart-news">Breitbart</option>
+        <option value="abc-news">ABC</option>
+        <option value="associated-press">AP</option>
+        <option value="bloomberg">Bloomberg</option>
+        <option value="buzzfeed">Buzzfeed</option>
+        <option value="bbc-news">BBC</option>
+        <option value="financial-times">Financial Times</option>
+        <option value="fox-news">Fox News</option>
+        <option value="the-new-york-times">The NY Times</option>
+        <option value="the-washington-post">Washington Post</option>
+      </select>
+    </div>
+  </div>
+
+  <!--The submit button authorizes the program based on the search criteria above-->
+  <input type="button" id="submit_button" value="Submit">
+
+  <!--Hidden at first, this content will appear and change based on the users search criteria-->
+  <div id="side_by_side">
+    <div id="news_interest_left">
+      <h2>Source #1</h2>
+      <h4>Source:</h4>
+      <div class="line"></div>
+      <p><span id="add_news_sourceL"></span></p>
+      <h4>Avg Emotion:</h4>
+      <div class="line"></div>
+      <p><span id="avg_left_emot"></span></p>
+      <h4>Avg Sentiment:</h4>
+      <div class="line"></div>
+      <p><span id="avg_left_sentiment"></span></p>
+    </div>
+    <div id="separator2">
+      <div class="headlines">
+        <h4>Headlines:</h4>
+        <ol id="add_left_news1">
+        </ol>
+      </div>
+      <div id="mouseover_left_score"></div>
+      <div class="scores">
+        <ol id="emotion_left">
+        </ol>
+      </div>
+      <div class="scores">
+        <ol id="sentiment_left">
+        </ol>
+      </div>
+    </div>
+
+    <div id="news_interest_right">
+      <h2>Source #2</h2>
+      <h4>Source:</h4>
+      <div class="line"></div>
+      <p><span id="add_news"></span></p>
+      <h4>Avg Emotion:</h4>
+      <div class="line"></div>
+      <p><span id="avg_right_emot"></span></p>
+      <h4>Avg Sentiment:</h4>
+      <div class="line"></div>
+      <p><span id="avg_right_sent"></span></p>
+    </div>
+    <div id="separator">
+      <div class="headlines">
+        <h4>Headlines:</h4>
+        <ol id="add_news1">
+        </ol>
+      </div>
+      <div class="scores">
+        <ol id="emotion">
+        </ol>
+      </div>
+      <div class="scores">
+        <ol id="sentiment">
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>

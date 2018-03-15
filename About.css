@@ -1,0 +1,135 @@
+body * {
+  box-sizing: border-box;
+}
+
+html body {
+  padding: 0;
+  background-color: #FFFFF7;
+}
+
+h1, h2, h4 {
+  font-family: 'Sanchez', serif;
+}
+
+p {
+  font-family: 'Crimson Text', serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header h1 {
+  text-align: center;
+}
+
+/*Styling for Drop Down menu*/
+/*some of the code was borrowed from https://www.youtube.com/watch?v=XDFyUPoak34, a tutorial online*/
+#container {
+  display:flex;
+  justify-content: center;
+}
+#container ul {
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+.nav {
+  z-index: 1000;
+  position:relative;
+}
+
+#toggle-button {
+  margin-top: 1em;
+}
+
+#container ul li {
+  width:100px;
+  height:30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #03A9F4;
+  border:none;
+  color:white;
+  font-size: 1em;
+
+}
+
+#container a {
+  text-decoration: none;
+  color:white;
+  font-size: .75em;
+}
+
+#container ul li:hover {
+  background-color: #0074a9;
+  z-index: 1000;
+}
+
+#container ul li:hover:last-of-type {
+  margin-bottom: 3em;
+}
+
+#container ul ul {
+  display:none;
+}
+
+#container ul li:hover > ul {
+  display:block;
+}
+
+/*End of styling for Drop Down*/
+
+.explained {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#last_section {
+  margin-bottom: 2em;
+}
+
+@media only screen and (min-width: 401px) and (max-width: 550px) {
+  h2, p {
+    width:70%;
+  }
+
+  h2 {
+    text-align: center;
+  }
+}
+
+
+@media only screen and (min-width: 551px) and (max-width: 900px) {
+  h2, p {
+    width:65%;
+  }
+
+  h2 {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  h2, p {
+    width:60%;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <title>Analyzing News Headlines</title>
+    <link rel='stylesheet' href='About.css'/>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>Headline Vivisector</h1>
+      <div id="container">
+        <ul class="nav">
+          <li>Menu
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="explained">
+      <h2>What's Going On?</h2>
+      <p>This app allows you to look at the top five headlines - as they relate to a specific subject, i.e. Syria or Brexit - from two different news sources and
+      contrast the dominant emotion and sentiment found in each grouping.</p>
+      <p>For anyone interested in studying news bias or how emotion and sentiment perfuses the news,
+      this app allows you a peek beneath the surface.</p>
+      <p>Given that most people get their news from the headlines, and not from the actual story,
+      understanding how headlines pander to our human emotions and sentiments is important.</p>
+      <p>The numbers under Avg Emotion and Avg Sentiment accord to the average scores of emotion and sentiment of the top five headlines
+      shown below.</p>
+      <p>Sometimes there are two different emotions that show up, which may seem contradictory, such
+      as joy and sadness. When the app produces two different emotions it means that joy and sadness
+      shared the same average within the analysis, and, as such, both are shown.</p>
+    </section>
+
+    <section class="explained">
+      <h2>How the App Works</h2>
+      <p>The vivisector uses three APIs - one news agglomerator, and two different
+      language analysis APIs, for emotion and sentiment respectively.</p>
+      <p>While far from perfect in terms of anaylzing sentiment and emotion - most of
+      these natural language analyzers aren't necessarily rigorous - they give us
+      an idea of the dominant emotions and sentiments within the headlines.</p>
+      <p>The app then takes your input, i.e. news sources and your subject of interest,
+      gathers the top five headlines from your chosen news sources, and related to your subject
+      of interest, then uses the two text analysis APIs to vet the emotions and sentiment within each block.</p>
+      <p>You are thus able to see if there are any patterns or differences in sentiment
+      and emotion with regards to the news source from which the headlines emanate.</p>
+    </section>
+
+    <section class="explained" id="last_section">
+      <h2>Emotion</h2>
+      <p>The emotion is chosen from five different emotions: anger, joy, fear,
+       sadness, and surprise.</p>
+       <p>The chosen emotion, or the emotion that appears on your screen, is the emotion
+       that had the highest probability of being in the headlines.</p>
+       <h2>Sentiment</h2>
+       <p>The sentiment ranges from very negative to very positive with neutral meaning little to no sentiment.</p>
+    </section>
+
+  </body>
+</html>

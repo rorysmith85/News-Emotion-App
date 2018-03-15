@@ -1,0 +1,531 @@
+body * {
+  box-sizing: border-box;
+}
+
+html body {
+  padding: 0;
+  background-color: #FFFFF7;
+}
+
+h1, h2, h4 {
+  font-family: 'Sanchez', serif;
+}
+
+p {
+  font-family: 'Crimson Text', serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header h1 {
+  text-align: center;
+}
+
+/*
+##############################################################################################
+This marks the beginning of the drop-down menu created for the site. Some of the code for the
+drop-down was borrowed from https://www.youtube.com/watch?v=XDFyUPoak34, a tutorial online.
+##############################################################################################
+*/
+#container {
+  display:flex;
+  justify-content: center;
+}
+#container ul {
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+.nav {
+  z-index: 1000;
+  position:relative;
+}
+
+#container ul li {
+  width:100px;
+  height:30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #03A9F4;
+  border:none;
+  color:white;
+  font-size: 1em;
+
+}
+
+#container a {
+  text-decoration: none;
+  color:white;
+  font-size: .75em;
+}
+
+#container ul li:hover {
+  background-color: #0074a9;
+  z-index: 1000;
+}
+
+#container ul li:hover:last-of-type {
+  margin-bottom: 4em;
+}
+
+#container ul ul {
+  display:none;
+}
+
+#container ul li:hover > ul {
+  display:block;
+}
+
+/*End of styling for Drop Down*/
+
+/*
+##############################################################################################
+Basic introduction to the app. Here includes some brief descriptions as well as the
+hide/show button that hides the content if desired.
+##############################################################################################
+*/
+#flex-container {
+  display:flex;
+  flex-direction: column;
+}
+
+#flex-container p:last-child {
+  padding-bottom: 1em;
+}
+
+h2 {
+  flex:1;
+  width:100%;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.flex-container p {
+  padding: 0 1em;
+}
+
+ul {
+  list-style-type: none;
+  padding:0;
+  margin-top: -.5em;
+}
+
+#toggle {
+  margin-top: .5em;
+}
+
+#toggle-button {
+  margin-top: 1em;
+}
+
+button {
+  margin: auto;
+  display:block;
+  background-color: #03A9F4;
+  border: none;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+  border-radius: 3px;
+}
+
+button:hover, button:focus{
+  background-color: #0074a9;
+  outline: none;
+/* The code here was borrowed from:
+https://stackoverflow.com/questions/38377062/how-to-make-html-button-look-pressed-in-using-css*/
+}
+
+/*
+##############################################################################################
+The news topic and news source sections that include a series of menus and input boxes as well
+as the final submit button which pushes the necessary query information to the APIs.
+##############################################################################################
+*/
+#refine {
+  text-align: center;
+  font-size: 2em;
+  color: red;
+}
+
+#select_news_topic {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#submit_button {
+  margin: auto;
+  display:block;
+  background-color: #03A9F4;
+  border: none;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+  border-radius: 3px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+#submit_button:hover, submit_button:focus {
+  background-color: #0074a9;
+  outline: none;
+}
+
+.select_option {
+  margin-top: 1em;
+  margin-bottom:1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/*
+##############################################################################################
+This is the DOM content that is added upon the user hitting the submit button. These sections
+will be revealed once the program is run and the APIs retrieve the necessary data. This shows
+the news sources, headlines, and the emotion and sentiment of these headlines.
+##############################################################################################
+*/
+#side_by_side {
+  display:none;
+  flex-direction: column;
+}
+
+#side_by_side p {
+  padding-bottom: 1em;
+}
+
+#news_interest_left {
+  margin-top: 1em;
+  margin-bottom:1em;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#news_interest_right {
+  margin-top: 1em;
+  margin-bottom:1em;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#news_interest_right h4 {
+  text-align: center;
+}
+
+#news_interest_left h4 {
+  text-align: center;
+}
+
+#add_news li {
+  padding-bottom: .7em;
+  font-family: 'Crimson Text', serif;
+}
+
+#add_news1 li {
+  padding-bottom: .7em;
+  font-family: 'Crimson Text', serif;
+}
+
+#add_left_news1 li {
+  padding-bottom: .7em;
+  font-family: 'Crimson Text', serif;
+}
+
+
+#news_cat {
+  margin-top: .7em;
+  border: 1px solid black;
+  margin-left: 1em;
+  padding-left: 1.2em;
+  width:130px;
+}
+
+#news_source {
+  margin-top: .7em;
+  border: 1px solid black;
+  margin-left: 1em;
+  padding-left: 1.3em;
+  width:130px;
+}
+
+#news_sourceL {
+  margin-top: .7em;
+  border: 1px solid black;
+  margin-left: 1em;
+  padding-left: 1.3em;
+  width:130px;
+}
+
+.headlines {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scores {
+  display:flex;
+  flex-direction: column;
+}
+
+.scores p {
+  text-align: center;
+}
+
+#avg_right_emot {
+  padding-left: .5em;
+}
+
+#avg_right_sent {
+  padding-left: .5em;
+}
+
+#avg_left_emot {
+  padding-left: .5em;
+}
+
+#avg_left_sentiment {
+  padding-left: .5em;
+}
+
+#news_interest_right p {
+  text-align: center;
+}
+
+#news_interest_left p {
+  text-align: center;
+}
+
+
+/*Hide the lists*/
+#emotion {
+  display:none;
+}
+
+#sentiment {
+  display:none;
+}
+
+#emotion_left {
+  display:none;
+}
+
+#sentiment_left {
+  display:none;
+}
+/*end of hiding the lists*/
+
+.line {
+  width:30px;
+  border-bottom: 2px solid black;
+}
+
+
+@media only screen and (min-width: 401px) and (max-width: 550px) {
+  * {
+    box-sizing: border-box;
+  }
+
+
+  .center_flex {
+    display:flex;
+    justify-content: center;
+  }
+  #flex-container {
+    width:80%;
+    display: flex;
+    align-content: center;
+  }
+
+  #side_by_side {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #add_news1, #add_left_news1 {
+    width:80%;
+  }
+
+  #news_interest_right {
+    order:2;
+    width:45%;
+  }
+
+  #separator {
+    order: 4;
+    width:50%;
+  }
+
+  #news_interest_left {
+    order:1;
+    width:45%;
+  }
+
+  #separator2 {
+    order:3;
+    width:50%;
+  }
+
+}
+
+  @media only screen and (min-width: 551px) and (max-width: 900px) {
+    * {
+      box-sizing: border-box;
+    }
+
+
+    .center_flex {
+      display:flex;
+      justify-content: center;
+    }
+
+    #flex-container {
+      width:70%;
+      display: flex;
+      align-content: center;
+    }
+
+    #selections {
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    #side_by_side {
+      display: none;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #add_news1, #add_left_news1 {
+      width:80%;
+    }
+
+
+    #select_news_source {
+      padding-left: 3em;
+    }
+
+    #select_news_sourceL {
+      padding-right: 3em;
+    }
+
+    #news_interest_right {
+      order:2;
+      width:45%;
+    }
+
+    #separator {
+      order: 4;
+      width:45%;
+    }
+
+    #news_interest_left {
+      order:1;
+      width:45%;
+    }
+
+    #separator2 {
+      order:3;
+      width:45%;
+
+    }
+  }
+
+  @media only screen and (min-width: 901px) {
+    h1 {
+      font-size: 3em;
+    }
+
+    h2 {
+      font-size: 2em;
+    }
+
+    #flex-container h2 {
+      margin-top: 0;
+    }
+
+     p {
+      font-size: 1.2em;
+    }
+
+    h4 {
+      font-size: 1.5em;
+    }
+
+    li {
+      font-size: 1.2em;
+    }
+
+    .center_flex {
+      display:flex;
+      justify-content: center;
+    }
+
+    #flex-container {
+      width:60%;
+      display: flex;
+      align-content: center;
+    }
+
+    #selections {
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    #side_by_side {
+      display: none;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    #add_news1, #add_left_news1 {
+      width:80%;
+    }
+
+    #select_news_source {
+      padding-left: 5em;
+    }
+
+    #select_news_sourceL {
+      padding-right:5em;
+    }
+
+    #news_interest_right {
+      order:2;
+      width:45%;
+    }
+
+    #separator {
+      order: 4;
+      width:45%;
+    }
+
+    #news_interest_left {
+      order:1;
+      width:45%;
+    }
+
+    #separator2 {
+      order:3;
+      width:45%;
+
+    }
+  }
